@@ -1,0 +1,162 @@
+/*
+**********************************************
+*************** GLOBAL CLASSES ***************
+**********************************************
+*/
+/* For to quit the margin */
+.withoutMargin {
+    margin: 0 !important;
+}
+/* For to add an element the 100% heignt */
+.totalHeight {
+    height: 100% !important;
+}
+/* To center any element horizontally */
+.centerPosition {
+    justify-content: center;
+}
+/* To center any element vertically */
+.verticalCentered {
+    -ms-display: flex;
+    display: flex;
+    align-items: center;
+}
+/*
+**********************************************
+*************** NAVBAR  STYLES ***************
+**********************************************
+*/
+/* Static Position for the navBar */
+.navbar-fixed-top {
+    left: 0;
+    position: fixed;
+    right: 0;
+    z-index: 9999;
+}
+/* Navigation Bar style */
+.barHeader {
+    height: 60px;
+    background-color: #393E46;
+    /* background-color: #929AAB; */
+    /* #EEEEEE */
+}
+/* Size for the logo */
+.tecnoLogo {
+    width: 160px;
+}
+/* To quit the space in the element borders */
+.optionMenuItemsSpace {
+    padding-right: 0 !important;
+}
+/* Line Color between item of the menu */
+.optionMenuBox {
+    border-left: 1px solid #009FE3;
+}
+/* Line Color between items of the extra small devices menu */
+.lineBarStyle {
+    border-top: 1px solid #009FE3 !important;
+}
+/* Style for the items into bar menu */
+.optionMenu {
+    color: #FFF;
+    cursor: pointer;
+    font-size: 12px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+/* Bar menu container style for the extra small Devices */
+.menuXSContainer {
+    background-color: #393E46;
+    color: #FFF;
+    padding-left: 30px;
+    padding-right: 30px;
+    position: absolute;
+    right: 0;
+    width: 100%;
+}
+/* Style for the items into bar menu for extra small Devices */
+.optionMenuXS {
+    color: #FFF;
+    cursor: pointer;
+    font-size: 12px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+/* Glyphicon Bootstrap Style */
+.menuIcon {
+    color: #FFF;
+    cursor: pointer;
+    float: none !important;
+    font-size: 25px;
+    text-align: center;
+    width: 100%;
+    z-index: 9999;
+}
+/* Effect when hovering over an item */
+.optionMenu:hover, .optionMenuXS:hover {
+    color: #009FE3;
+}
+/*
+**********************************************
+**************** SLIDER STYLE ****************
+**********************************************
+*/
+/* carousel fullscreen */
+.carousel-fullscreen .carousel-inner .item {
+    height: 70vh;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/* carousel fullscreen */
+.carousel-inner {
+    height: 70vh;
+}
+/* Fullscreen Carousel images */
+.imagesCarousel {
+    height: 70vh !important;
+    width: 100%;
+}
+/* carousel fullscreen - vertically centered caption*/
+.carousel-caption {
+    height: 60vh !important;
+}
+/* overlay for better readibility of the caption  */
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.3;
+    transition: all 0.2s ease-out;
+}
+/* demo typography */
+.super-heading {
+    font-size: 40px;
+    font-weight: 700;
+}
+/* Quit navigation of the second slider */
+.owl-dots, .owl-nav {
+    display: none !important;
+}
+/* Second Slider Style secundary */
+.seconSlider {
+    border: 1px solid black;
+}
+/* Size for the customer images contain */
+.secondItemsSlider {
+    height:150px;
+}
+/* Size for the customer images */
+.owlImages {
+    height: 150px;
+    padding: 10px;
+}
+/* Laps time slider images */
+.owl-stage {
+    /* transition: 1.5s !important; */
+}
