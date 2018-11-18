@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" dir="ltr">
+<html lang="es" dir="ltr" ng-app="TVWebsite">
     <head>
         <!-- <script src="lib/jquery.js"></script> -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -10,14 +10,15 @@
 
         <link rel="stylesheet" href="lib/owlCarousel/dist/assets/owl.carousel.min.css">
         <link rel="stylesheet" href="lib/owlCarousel/dist/assets/owl.theme.default.min.css">
-
-        <link rel="stylesheet" href="sweetalert2/dist/sweetalert2.min.css">
-
+        <!-- <link rel="stylesheet" href="sweetalert2/dist/sweetalert2.min.css"> -->
+        <link rel="stylesheet" href="css/contact.css">
+        <link rel="stylesheet" href="css/products.css">
         <link rel="stylesheet" href="css/style.css">
     </head>
+    <!-- <body oncontextmenu="return false" onmousedown="return false" onselectstart="return false"> -->
     <body>
         <!-- Navigation Bar -->
-        <div class="container-fluid navbar-fixed-top">
+        <div class="container-fluid navbar-fixed-top" ng-controller="generalCtrl">
             <div class="row barHeader">
                 <!-- TecnoVigilancia Logo -->
                 <div class="totalHeight col-xs-7 col-sm-4 col-md-4 col-lg-4 centerPosition verticalCentered">
@@ -25,23 +26,23 @@
                 </div>
                 <!-- Menu Option into Small, Medium and Large Devices -->
                 <div class="totalHeight col-xs-5 col-sm-8 col-md-8 col-lg-8 optionMenuItemsSpace verticalCentered hidden-xs">
-                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                        <p class="optionMenu verticalCentered centerPosition">TECNO</p>
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" ng-click="selectOptionColor('tecno')" ui-sref="home">
+                        <p class="optionMenu verticalCentered centerPosition" ng-style="op1">TECNO</p>
                     </div>
-                    <div class="optionMenuBox col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                        <p class="optionMenu verticalCentered centerPosition">NOSOTROS</p>
+                    <div class="optionMenuBox col-xs-2 col-sm-2 col-md-2 col-lg-2" ng-click="selectOptionColor('nosotros')">
+                        <p class="optionMenu verticalCentered centerPosition" ng-style="op2">NOSOTROS</p>
                     </div>
-                    <div class="optionMenuBox col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                        <p class="optionMenu verticalCentered centerPosition">SERVICIOS</p>
+                    <div class="optionMenuBox col-xs-2 col-sm-2 col-md-2 col-lg-2" ng-click="selectOptionColor('servicios')" ui-sref="product">
+                        <p class="optionMenu verticalCentered centerPosition" ng-style="op3">SERVICIOS</p>
                     </div>
-                    <div class="optionMenuBox col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                        <p class="optionMenu verticalCentered centerPosition">CONTACTO</p>
+                    <div class="optionMenuBox col-xs-2 col-sm-2 col-md-2 col-lg-2" ng-click="selectOptionColor('contacto')" ui-sref="contact">
+                        <p class="optionMenu verticalCentered centerPosition" ng-style="op4">CONTACTO</p>
                     </div>
-                    <div class="optionMenuBox col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                        <p class="optionMenu verticalCentered centerPosition">PROMOS</p>
+                    <div class="optionMenuBox col-xs-2 col-sm-2 col-md-2 col-lg-2" ng-click="selectOptionColor('promos')">
+                        <p class="optionMenu verticalCentered centerPosition" ng-style="op5">PROMOS</p>
                     </div>
-                    <div class="optionMenuBox col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                        <p class="optionMenu verticalCentered centerPosition">CLIENTES</p>
+                    <div class="optionMenuBox col-xs-2 col-sm-2 col-md-2 col-lg-2" ng-click="selectOptionColor('clientes')">
+                        <p class="optionMenu verticalCentered centerPosition" ng-style="op6">CLIENTES</p>
                     </div>
                 </div>
                 <!-- Show Menu Items only into Extra Small Devices -->
@@ -50,7 +51,7 @@
                     <span class="glyphicon glyphicon-menu-hamburger totalHeight menuIcon verticalCentered centerPosition" data-toggle="collapse" data-target="#menuToggle"></span>
                     <!-- Menu Items -->
                     <div class="collapse navbar-collapse menuXSContainer" id="menuToggle">
-                        <div class="navbar-nav optionMenuXS verticalCentered centerPosition">
+                        <div class="navbar-nav optionMenuXS verticalCentered centerPosition" ui-sref="home">
                             <p class="withoutMargin">TECNO</p>
                         </div>
                         <hr class="withoutMargin lineBarStyle">
@@ -58,11 +59,11 @@
                             <p class="withoutMargin">NOSOTROS</p>
                         </div>
                         <hr class="withoutMargin lineBarStyle">
-                        <div class="navbar-nav optionMenuXS verticalCentered centerPosition">
+                        <div class="navbar-nav optionMenuXS verticalCentered centerPosition" ui-sref="product">
                             <p class="withoutMargin">SERVICIOS</p>
                         </div>
                         <hr class="withoutMargin lineBarStyle">
-                        <div class="navbar-nav optionMenuXS verticalCentered centerPosition">
+                        <div class="navbar-nav optionMenuXS verticalCentered centerPosition" ui-sref="contact">
                             <p class="withoutMargin">CONTACTANOS</p>
                         </div>
                         <hr class="withoutMargin lineBarStyle">
@@ -77,96 +78,71 @@
                 </div>
             </div>
         </div>
-        <!-- Carousel -->
-        <div class="container-fluid">
-            <div class="row">
-                <div class="carouselContainer">
-                    <div id="carousel-example-generic2" class="carousel slide carousel-fullscreen carousel-fade" data-ride="carousel">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#carousel-example-generic2" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-example-generic2" data-slide-to="1"></li>
-                        <li data-target="#carousel-example-generic2" data-slide-to="2"></li>
-                    </ol>
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner" role="listbox">
-                        <div class="item active" style="background-image: url('images/wallpaper2.jpg');">
-                            <div class="overlay"></div>
-                            <div class="carousel-caption  verticalCentered centerPosition">
-                                <h1 class="super-heading">¿Buscas equipo para Seguridad <br>Electrónica?</h1>
-                            </div>
+
+         <ui-view></ui-view>
+
+
+
+<br>
+
+
+
+
+        <footer  ng-controller="generalCtrl">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3 col-lg-3 col-sm-4 text-center"  style="border-right:1px solid #275B75">
+                        <img class="img-responsive fTecnBrand" src="images/tecnoLogo4.png" alt="">
+                        <br>
+                        <p class="Landing">Líder en seguridad electrónica, con el equipo más sofisticado. Cubriendo necesidades de seguridad personal, familiar y empresarial a un precio bajo.</p>
+                    </div>
+                    <div class="col-md-3 col-lg-3 col-sm-3 text-center" style="border-right:1px solid #275B75">
+                        <img class="vCuotas" class="img-responsive" src="images/vCuotas.png" alt="">
+                    </div>
+                    <div class="col-md-3 col-lg-3 col-sm-3 text-center" style="border-right:1px solid #275B75">
+                        <div class="text-center">
+                            <strong><p class="colorWhite">CONTÁCTANOS:</p></strong>
                         </div>
-                        <div class="item" style="background-image: url('images/app.png');">
-                            <div class="overlay"></div>
-                            <div class="carousel-caption  verticalCentered centerPosition">
-                                <h1 class="super-heading">¡Nosotros te asesoramos!</h1>
-                            </div>
-                        </div>
-                        <div class="item" style="background-image: url('images/wallpaper3.png');">
-                            <div class="overlay"></div>
-                            <div class="carousel-caption  verticalCentered centerPosition">
-                                <h1 class="super-heading">Te brindaremos el mejor equipo <br>a precios bajos</h1>
-                            </div>
+                        <div class="text-left">
+                            <ul class="cListFooter colorWhite">
+                                <li class="linkFoo">- (502) 6636-4810</li>
+                                <li class="linkFoo">- (502) 5699-2518</li>
+                                <li class="linkFoo">- 5ta. Avenida 3-60 Zona1, Villa Nueva</li>
+                                <li class="linkFoo">- Facebook/TecnoVigilanciaGT</li>
+                            </ul>
                         </div>
                     </div>
-                    <!-- Controls -->
-                    <a class="left carousel-control" href="#carousel-example-generic2" role="button" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                        <span class="sr-only">ANTERIOR</span>
-                    </a>
-                    <a class="right carousel-control" href="#carousel-example-generic2" role="button" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                        <span class="sr-only">SIGUIENTE</span>
-                    </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Slide Container -->
-        <div class="container-fluid seconSlider">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="owl-carousel">
-                        <div class="secondItemsSlider">
-                            <img class="owlImages" src="images/providers/branding1.png" alt="">
+                    <div class="col-md-3 col-lg-3 col-sm-4 text-center">
+                        <div class="col-md-6">
+                            <img class="img-responsive fTecnBand" src="images/guatemala.png" alt="">
                         </div>
-                        <div class="secondItemsSlider">
-                            <img class="owlImages" src="images/providers/branding2.png" alt="">
-                        </div>
-                        <div class="secondItemsSlider">
-                            <img class="owlImages" src="images/providers/branding3.png" alt="">
-                        </div>
-                        <div class="secondItemsSlider">
-                            <img class="owlImages" src="images/providers/branding4.png" alt="">
-                        </div>
-                        <div class="secondItemsSlider">
-                            <img class="owlImages" src="images/providers/branding5.png" alt="">
-                        </div>
-                        <div class="secondItemsSlider">
-                            <img class="owlImages" src="images/providers/branding6.png" alt="">
-                        </div>
-                        <div class="secondItemsSlider">
-                            <img class="owlImages" src="images/providers/branding7.png" alt="">
+                        <div class="col-md-6">
+                            <img class="img-responsive fTecnBand" src="images/chile.png" alt="">
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </footer>
 
 
 
+<a class="hidden-lg hidden-md hidden-sm" href="https://api.whatsapp.com/send?phone=50235410949&text=Bienvenido%20a%20las%20Mejores%20Ofertas">
+    <img src="images/WhatsAppLogo.png" alt="" width="60" class="whats">
+</a>
 
 
 
-
-
-
-
-
-        <script src="lib/sweetalert2/dist/sweetalert2.all.min.js"></script>
+        <!-- <script src="lib/sweetalert2/dist/sweetalert2.all.min.js"></script> -->
+        <!-- Angular JS -->
+        <script src="lib/angular.js"></script>
+        <!-- Angular UI Router -->
+        <script src="lib/uiRouter.js"></script>
+        <!-- Bootstrap Framework -->
         <script src="lib/bootstrap/js/bootstrap.js"></script>
+        <!-- Carousel Framework -->
         <script src="lib/owlCarousel/dist/owl.carousel.min.js"></script>
-        <script src="js/script.js"></script>
         <script src="js/carouselAnimation.js"></script>
+        <!-- Functionality File -->
+        <script src="js/script.js"></script>
     </body>
 </html>

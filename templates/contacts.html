@@ -1,0 +1,81 @@
+<div class="container afterNav contactContainer">
+    <div class="row" style="padding: 10px 0 10px 0;border-bottom:2px solid #F3F3F4">
+        <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12 text-center">
+            <span class="contactTitle">CONTÁCTANOS</span>
+        </div>
+    </div>
+    <div class="row totalHeight">
+        <div class="col-md-5" style="padding: 20px 20px 10px 10px">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <span class="followTitle">Síguenos En:</span>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-5 col-xs-4 col-sm-5 col-lg-5 text-right">
+                    <img class="branding" src="../images/facebookBrand.png" alt="">
+                </div>
+                <div class="col-md-7 followText verticalCentered">/TecnoVigilanciaGT</div>
+            </div>
+
+            <div class="row" style="padding-top:15px;padding-bottom:15px">
+                <div class="col-md-12 text-center">
+                    <span class="followTitle">Otros Medios:</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-5 col-xs-4 col-sm-5 col-lg-5 text-right">
+                    <img class="branding" src="../images/phoneBranding.png" alt="">
+                </div>
+                <div class="col-md-7 followText verticalCentered">(502) 6636-4810</div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-5 col-xs-4 col-sm-5 col-lg-5 text-right">
+                    <img class="branding" src="../images/WhatsAppLogo1.png" alt="">
+                </div>
+                <div class="col-md-7 followText verticalCentered">(502) 3004-0480</div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-5 col-xs-4 col-sm-5 col-lg-5 text-right">
+                    <img class="branding" src="../images/locationBrand.png" alt="">
+                </div>
+                <div class="col-md-7 followText verticalCentered">5ta. Avenida 3-60 zona 1, Villa Nueva</div>
+            </div>
+
+        </div>
+        <div class="col-md-7">
+            <form  onsubmit="return false" ng-submit="submit(contactform)" name="contactform" method="post" action=""  style="padding: 20px 20px 10px 10px">
+                <div class="input-group inputSpace">
+                    <span class="input-group-addon iconB"><i class="glyphicon glyphicon-user glyphiconContact"></i></span>
+                    <input type="text" class="form-control" ng-model="formData.inputName" id="inputName" required name="inputName" placeholder="Nombre Completo">
+                </div>
+
+                <div class="input-group inputSpace">
+                    <span class="input-group-addon iconB"><i class="glyphicon glyphicon-envelope glyphiconContact"></i></span>
+                    <input type="email" class="form-control" ng-model="formData.inputEmail" id="inputEmail" required name="inputEmail" placeholder="Correo">
+                </div>
+
+                <div class="input-group inputSpace">
+                    <span class="input-group-addon iconB"><i class="glyphicon glyphicon-phone glyphiconContact"></i></span>
+                    <input type="text" class="form-control" ng-model="formData.inputPhone" id="inputPhone" required name="inputPhone" placeholder="Télefono">
+                </div>
+
+                <div class="input-group inputSpace">
+                    <span class="input-group-addon iconB"><i class="glyphicon glyphicon-comment glyphiconContact"></i></span>
+                    <textarea class="form-control comment" ng-model="formData.inputMessage" id="inputMessage" required name="inputMessage" rows="10" placeholder="Escribe tu Mensaje Aquí"></textarea>
+                </div>
+
+                <div class="row" style="padding-bottom:20px">
+                    <div class="col-md-12 verticalCentered centerPosition">
+                        <button type="submit" class="sendEmailButton verticalCentered centerPosition">
+                            <span>Enviar</span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

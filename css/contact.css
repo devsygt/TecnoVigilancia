@@ -1,0 +1,71 @@
+.contactContainer {
+    background-color: #FFF;
+    box-shadow: 1px 1px 4px gray;
+    border-radius: 3px;
+}
+
+.contactTitle {
+    font-size: 24px;
+    font-weight: bolder;
+    color: #393E46;
+    font-family: "Helvetica Neue", Helvetica;
+}
+
+.followTitle {
+    font-size: 16px;
+    font-weight: bolder;
+    color: #393E46;
+    font-family: "Helvetica Neue", Helvetica;
+}
+
+.branding {
+    width: 45px;
+    height: 40px
+}
+
+.followText {
+    height: 55px;
+}
+
+.iconB {
+    background: none !important;
+    border: none !important;
+}
+
+.glyphiconContact {
+    font-size: 20px;
+    color: #393E46;
+}
+
+.inputSpace {
+    padding-bottom: 5px;
+}
+
+input[type="text"], textarea, input[type="email"] {
+  background-color : #F3F3F4 !important;
+}
+
+.comment {
+    resize: none !important;
+}
+
+.sendEmailButton {
+    border: none;
+    width: 150px;
+    height: 40px;
+    border-radius: 5px;
+    font-weight: bolder;
+    color: #FFF;
+    /* background-color: #275B75 */
+    /* background-color: #1679A6; */
+    background-color: #0399D9;
+    box-shadow: 0 5px 1px #275B75;
+}
+.sendEmailButton:active {
+    box-shadow: 0 0 0;
+    margin-top: 1px
+}
+
+.sendEmailButton:hover {
+    cursor: pointer;
+}
