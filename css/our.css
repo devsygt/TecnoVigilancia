@@ -1,0 +1,33 @@
+.ourTitle {
+    color: #393E46;
+    font-size: 20px;
+    font-weight: bolder;
+    font-family: 'Acme', sans-serif;
+}
+
+.ourContentText {
+    font-family: 'Comfortaa', cursive;
+    font-size: 14px;
+}
+
+.underLineOur {
+    border-bottom: 5px solid #FFF;
+}
+
+.howIAmSpacing {
+    padding:50px;
+    height:100%;
+}
+
+.ourSpacing {
+    padding:50px;
+    height:412px;
+}
+
+
+
+@media only screen and (max-width: 992px) {
+    .ourSpacingImage {
+        padding: 0 !important
+    }
+}

@@ -7,13 +7,13 @@
                 <div class="menu-list">
                     <ul id="menu-content" class="menu-content collapse out">
                         <!-- First Item -->
-                        <li ng-click="opSelect(1)" ng-style="opProductSelected.options[0][1]">
+                        <li ng-click="opSelect(1,'')" ng-style="opProductSelected.options[0][1]">
                             <!-- <p>{{opProductSelected.options[0][1]}}</p> -->
                             <i class="fa fa-gift fa-lg"></i>Todos
                         </li>
                         <!-- Second Item -->
-                        <li ng-click="opSelect(2)"  data-toggle="collapse" data-target="#products" class="collapsed" ng-style="opProductSelected.options[0][2]">
-                            <i class="fa fa-gift fa-lg"></i>Cámaras
+                        <li ng-click="opSelect(2,'Videovigilancia')"  data-toggle="collapse" data-target="#products" class="collapsed" ng-style="opProductSelected.options[0][2]">
+                            <i class="fa fa-gift fa-lg"></i>Videovigilancia
                         </li>
                         <!-- <ul class="sub-menu collapse" id="products">
                         <li class="active"><a href="#">CSS3 Animation</a></li>
@@ -28,8 +28,9 @@
                         <li><a href="#">Bootstrap Model</a></li>
                         </ul> -->
                         <!-- Third Item -->
-                        <li ng-click="opSelect(3)" data-toggle="collapse" data-target="#service" class="collapsed" ng-style="opProductSelected.options[0][3]">
-                            <i class="fa fa-globe fa-lg"></i>Sistemas de Grabación Digital
+                        <li style="line-height:20px" ng-click="opSelect(3,'Alarmas de Intrusión, Incendio y Evacuación')" data-toggle="collapse" data-target="#service" class="collapsed" ng-style="opProductSelected.options[0][3]">
+                            <i class="fa fa-globe fa-lg"></i>Alarmas de Intrusión, Incendio y
+                            <i class="fa fa-globe fa-lg"></i>Evacuación
                         </li>
                         <!-- <ul class="sub-menu collapse" id="service">
                         <li>New Service 1</li>
@@ -37,8 +38,9 @@
                         <li>New Service 3</li>
                         </ul> -->
                         <!-- Fourth Item -->
-                        <li ng-click="opSelect(4)" data-toggle="collapse" data-target="#new" class="collapsed" ng-style="opProductSelected.options[0][4]">
-                            <i class="fa fa-car fa-lg"></i>Sistemas de Intrusión
+                        <li style="line-height:20px" ng-click="opSelect(4,'Control de Acceso, Tiempo y Asistencia')" data-toggle="collapse" data-target="#new" class="collapsed" ng-style="opProductSelected.options[0][4]">
+                            <i class="fa fa-car fa-lg"></i>Control de Acceso, Tiempo y <br/>
+                            <i class="fa fa-car fa-lg"></i>Asistencia
                         </li>
                         <!-- <ul class="sub-menu collapse" id="new">
                         <li>New New 1</li>
@@ -46,32 +48,16 @@
                         <li>New New 3</li>
                         </ul> -->
                         <!-- Fifth Item -->
-                        <li ng-click="opSelect(5)" ng-style="opProductSelected.options[0][5]">
-                            <i class="fa fa-user fa-lg"></i>Audio Soluciones
+                        <li ng-click="opSelect(5,'Seguridad Perimetral')" ng-style="opProductSelected.options[0][5]">
+                            <i class="fa fa-user fa-lg"></i>Seguridad Perimetral
                         </li>
                         <!-- Sixth Item -->
-                        <li ng-click="opSelect(6)" ng-style="opProductSelected.options[0][6]">
-                            <i class="fa fa-users fa-lg"></i>Detectores de Metal
+                        <li ng-click="opSelect(6,'Varios')" ng-style="opProductSelected.options[0][6]">
+                            <i class="fa fa-users fa-lg"></i>Varios
                         </li>
                         <!-- Seventh Item -->
-                        <li ng-click="opSelect(7)" ng-style="opProductSelected.options[0][7]">
-                            <i class="fa fa-users fa-lg"></i>Control de Acceso y Asistencia
-                        </li>
-                        <!-- Tenth Item -->
-                        <li ng-click="opSelect(8)" ng-style="opProductSelected.options[0][8]">
-                            <i class="fa fa-users fa-lg"></i>Control de Rondas
-                        </li>
-                        <!-- Eleventh Item -->
-                        <li ng-click="opSelect(9)" ng-style="opProductSelected.options[0][9]">
-                            <i class="fa fa-users fa-lg"></i>Sistemas de Cobro
-                        </li>
-                        <!-- Twelfth Item -->
-                        <li ng-click="opSelect(10)" ng-style="opProductSelected.options[0][10]">
-                            <i class="fa fa-users fa-lg"></i>Talanqueras y Barreras
-                        </li>
-                        <!-- Thirteenth Item -->
-                        <li ng-click="opSelect(11)" ng-style="opProductSelected.options[0][11]">
-                            <i class="fa fa-users fa-lg"></i>Mallas y Cercas
+                        <li ng-click="opSelect(7,'Especiales y Marketing')" ng-style="opProductSelected.options[0][7]">
+                            <i class="fa fa-users fa-lg"></i>Especiales y Marketing
                         </li>
                     </ul>
                 </div>
@@ -79,161 +65,39 @@
             </div>
         </div>
         <div class="col-md-9 col-lg-9 col-sm-8 col-xs-12 contentlg">
-            <div class="container-fluid">
-                <div class="row">
+            <div class="container-fluid w3-animate-opacity">
+                <div class="loadingContainer text-center" ng-if="prodStatus !=true">
+                    <div class="spinner"></div>
+                    <p class="psTitle">Cargando</p>
+                </div>
+                <div class="row" ng-if="prodStatus == true">
                     <div class="col-xs-12 text-center">
-                        <span class="psTitle">Productos y Servicios</span>
+                        <span class="psTitle underLine">Productos y Servicios</span>
                     </div>
                 </div>
                 <br>
-                <div class="row">
-                    <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 separateProduct">
+                <div class="row" style="padding-bottom:50px">
+                    <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 separateProduct" ng-repeat="x in ourProductsObject | filter : filterProducts">
                         <div class="productContain">
+
+                            <div class="iconXS hidden-lg hidden-md">
+                                <img class="iconCategoryXS" src="{{x.Icon}}" alt="">
+                            </div>
+
                             <div class="images shapeProduct">
-                                <img class="img-responsive productImgDB" src="../images/9ZnpM.png" alt="">
+                                <img class="img-responsive productImgDB" src="{{x.Imagen}}" alt="">
                             </div>
-                            <div class="productDescription1 col-md-10 verticalCentered" style="height:50px">
-                                <span>Camara</span>
+
+                            <div class="productDescription1 col-md-10 col-lg-10 col-xs-12 col-sm-12 verticalCentered" style="height:50px">
+                                <span>{{x.Name}}</span>
                             </div>
-                            <div class="col-md-2 col-lg-2 verticalCentered centerPosition" style="height:50px">
-                                <span class="glyphicon glyphicon-eye-open"></span>
+                            <div class="col-md-2 col-lg-2 verticalCentered centerPosition hidden-xs hidden-sm" style="height:50px">
+                                <img class="iconCategory" src="{{x.Icon}}" alt="">
                             </div>
                         </div>
                     </div>
-
-
-                    <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 separateProduct">
-                        <div class="productContain">
-                            <div class="images shapeProduct">
-                                <img class="img-responsive productImgDB" src="../images/9ZnpM.png" alt="">
-                            </div>
-                            <div class="productDescription1 col-md-10 verticalCentered" style="height:50px">
-                                <span>Camara</span>
-                            </div>
-                            <div class="col-md-2 col-lg-2 verticalCentered centerPosition" style="height:50px">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 separateProduct">
-                        <div class="productContain">
-                            <div class="images shapeProduct">
-                                <img class="img-responsive productImgDB" src="../images/9ZnpM.png" alt="">
-                            </div>
-                            <div class="productDescription1 col-md-10 verticalCentered" style="height:50px">
-                                <span>Camara</span>
-                            </div>
-                            <div class="col-md-2 col-lg-2 verticalCentered centerPosition" style="height:50px">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 separateProduct">
-                        <div class="productContain">
-                            <div class="images shapeProduct">
-                                <img class="img-responsive productImgDB" src="../images/9ZnpM.png" alt="">
-                            </div>
-                            <div class="productDescription1 col-md-10 verticalCentered" style="height:50px">
-                                <span>Camara</span>
-                            </div>
-                            <div class="col-md-2 col-lg-2 verticalCentered centerPosition" style="height:50px">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 separateProduct">
-                        <div class="productContain">
-                            <div class="images shapeProduct">
-                                <img class="img-responsive productImgDB" src="../images/9ZnpM.png" alt="">
-                            </div>
-                            <div class="productDescription1 col-md-10 verticalCentered" style="height:50px">
-                                <span>Camara</span>
-                            </div>
-                            <div class="col-md-2 col-lg-2 verticalCentered centerPosition" style="height:50px">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 separateProduct">
-                        <div class="productContain">
-                            <div class="images shapeProduct">
-                                <img class="img-responsive productImgDB" src="../images/9ZnpM.png" alt="">
-                            </div>
-                            <div class="productDescription1 col-md-10 verticalCentered" style="height:50px">
-                                <span>Camara</span>
-                            </div>
-                            <div class="col-md-2 col-lg-2 verticalCentered centerPosition" style="height:50px">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 separateProduct">
-                        <div class="productContain">
-                            <div class="images shapeProduct">
-                                <img class="img-responsive productImgDB" src="../images/9ZnpM.png" alt="">
-                            </div>
-                            <div class="productDescription1 col-md-10 verticalCentered" style="height:50px">
-                                <span>Camara</span>
-                            </div>
-                            <div class="col-md-2 col-lg-2 verticalCentered centerPosition" style="height:50px">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 separateProduct">
-                        <div class="productContain">
-                            <div class="images shapeProduct">
-                                <img class="img-responsive productImgDB" src="../images/9ZnpM.png" alt="">
-                            </div>
-                            <div class="productDescription1 col-md-10 verticalCentered" style="height:50px">
-                                <span>Camara</span>
-                            </div>
-                            <div class="col-md-2 col-lg-2 verticalCentered centerPosition" style="height:50px">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 separateProduct">
-                        <div class="productContain">
-                            <div class="images shapeProduct">
-                                <img class="img-responsive productImgDB" src="../images/9ZnpM.png" alt="">
-                            </div>
-                            <div class="productDescription1 col-md-10 verticalCentered" style="height:50px">
-                                <span>Camara</span>
-                            </div>
-                            <div class="col-md-2 col-lg-2 verticalCentered centerPosition" style="height:50px">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-6 col-lg-3 col-xs-6 separateProduct">
-                        <div class="productContain">
-                            <div class="images shapeProduct">
-                                <img class="img-responsive productImgDB" src="../images/9ZnpM.png" alt="">
-                            </div>
-                            <div class="productDescription1 col-md-10 verticalCentered" style="height:50px">
-                                <span>Camara</span>
-                            </div>
-                            <div class="col-md-2 col-lg-2 verticalCentered centerPosition" style="height:50px">
-                                <span class="glyphicon glyphicon-eye-open"></span>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-
                 </div>
             </div>
-
+        </div>
     </div>
 </div>

@@ -3,6 +3,11 @@
 *************** GLOBAL CLASSES ***************
 **********************************************
 */
+html {
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 200px;
+}
 /* For to quit the margin */
 .withoutMargin {
     margin: 0 !important;
@@ -27,11 +32,12 @@ body {
 }
 /* Footer Position */
 footer {
-  position: relative;
+  position: absolute;
   bottom: 0;
   /* height: 200px; */
   background: #222831;
-  padding: 2%
+  padding: 2%;
+  width: 100%;
 }
 
 .fTecnBrand {
@@ -76,6 +82,10 @@ footer {
 
 .borde {
     border: 1px solid red;
+}
+
+.listStyle {
+    list-style: none;
 }
 /*---------------------------Scroll Style---------------------------*/
 /*Size for the Scroll Bar*/
@@ -245,4 +255,53 @@ footer {
         bottom:20px;
         right:20px;
         z-index: 9999;
+}
+
+@media only screen and (max-width: 1301px) {
+    .cListFooter  {
+        padding: 0;
+    }
+}
+
+/* @media only screen and (max-width: 1401px) {
+    .t1  {
+        text-align: center;
+        font-size: 16px
+    }
+    .t3 {
+        display: block;
+    }
+    .t2 {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1161px) {
+    .t1  {
+        text-align: center;
+        font-size: 16px
+    }
+    .t2 {
+        display: none;
+    }
+} */
+
+
+@media only screen and (max-width: 1149px) {
+    .t4 {
+        display: none
+    }
+}
+@media only screen and (max-width: 1050px) {
+    .t3 {
+        display: none
+    }
+}
+@media only screen and (max-width: 992px) {
+    .t3 {
+        display: none
+    }
+    .cts {
+        display: none
+    }
 }

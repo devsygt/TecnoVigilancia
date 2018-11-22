@@ -10,13 +10,22 @@
 
         <link rel="stylesheet" href="lib/owlCarousel/dist/assets/owl.carousel.min.css">
         <link rel="stylesheet" href="lib/owlCarousel/dist/assets/owl.theme.default.min.css">
+        <link rel="stylesheet" href="lib/w3animation.css">
+
+
+        <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+
+
+
         <!-- <link rel="stylesheet" href="sweetalert2/dist/sweetalert2.min.css"> -->
+        <link rel="stylesheet" href="css/our.css">
         <link rel="stylesheet" href="css/contact.css">
         <link rel="stylesheet" href="css/products.css">
         <link rel="stylesheet" href="css/style.css">
     </head>
     <!-- <body oncontextmenu="return false" onmousedown="return false" onselectstart="return false"> -->
-    <body>
+    <body class="totalHeight">
         <!-- Navigation Bar -->
         <div class="container-fluid navbar-fixed-top" ng-controller="generalCtrl">
             <div class="row barHeader">
@@ -29,7 +38,7 @@
                     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2" ng-click="selectOptionColor('tecno')" ui-sref="home">
                         <p class="optionMenu verticalCentered centerPosition" ng-style="op1">TECNO</p>
                     </div>
-                    <div class="optionMenuBox col-xs-2 col-sm-2 col-md-2 col-lg-2" ng-click="selectOptionColor('nosotros')">
+                    <div class="optionMenuBox col-xs-2 col-sm-2 col-md-2 col-lg-2" ng-click="selectOptionColor('nosotros')" ui-sref="our">
                         <p class="optionMenu verticalCentered centerPosition" ng-style="op2">NOSOTROS</p>
                     </div>
                     <div class="optionMenuBox col-xs-2 col-sm-2 col-md-2 col-lg-2" ng-click="selectOptionColor('servicios')" ui-sref="product">
@@ -38,10 +47,10 @@
                     <div class="optionMenuBox col-xs-2 col-sm-2 col-md-2 col-lg-2" ng-click="selectOptionColor('contacto')" ui-sref="contact">
                         <p class="optionMenu verticalCentered centerPosition" ng-style="op4">CONTACTO</p>
                     </div>
-                    <div class="optionMenuBox col-xs-2 col-sm-2 col-md-2 col-lg-2" ng-click="selectOptionColor('promos')">
+                    <div class="optionMenuBox col-xs-2 col-sm-2 col-md-2 col-lg-2" ng-click="selectOptionColor('promos')" ui-sref="promos">
                         <p class="optionMenu verticalCentered centerPosition" ng-style="op5">PROMOS</p>
                     </div>
-                    <div class="optionMenuBox col-xs-2 col-sm-2 col-md-2 col-lg-2" ng-click="selectOptionColor('clientes')">
+                    <div class="optionMenuBox col-xs-2 col-sm-2 col-md-2 col-lg-2" ng-click="selectOptionColor('clientes')" ui-sref="customer">
                         <p class="optionMenu verticalCentered centerPosition" ng-style="op6">CLIENTES</p>
                     </div>
                 </div>
@@ -55,7 +64,7 @@
                             <p class="withoutMargin">TECNO</p>
                         </div>
                         <hr class="withoutMargin lineBarStyle">
-                        <div class="navbar-nav optionMenuXS verticalCentered centerPosition">
+                        <div class="navbar-nav optionMenuXS verticalCentered centerPosition" ui-sref="our">
                             <p class="withoutMargin">NOSOTROS</p>
                         </div>
                         <hr class="withoutMargin lineBarStyle">
@@ -67,11 +76,11 @@
                             <p class="withoutMargin">CONTACTANOS</p>
                         </div>
                         <hr class="withoutMargin lineBarStyle">
-                        <div class="navbar-nav optionMenuXS verticalCentered centerPosition">
+                        <div class="navbar-nav optionMenuXS verticalCentered centerPosition" ui-sref="promos">
                             <p class="withoutMargin">PROMOS</p>
                         </div>
                         <hr class="withoutMargin lineBarStyle">
-                        <div class="navbar-nav optionMenuXS verticalCentered centerPosition">
+                        <div class="navbar-nav optionMenuXS verticalCentered centerPosition" ui-sref="customer">
                             <p class="withoutMargin">CLIENTES</p>
                         </div>
                     </div>
@@ -81,42 +90,43 @@
 
          <ui-view></ui-view>
 
-
-
-<br>
-
-
-
-
         <footer  ng-controller="generalCtrl">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-3 col-lg-3 col-sm-4 text-center"  style="border-right:1px solid #275B75">
+                    <div class="col-md-3 col-lg-3 col-sm-4 col-xs-4 text-center"  style="border-right:1px solid #275B75">
                         <img class="img-responsive fTecnBrand" src="images/tecnoLogo4.png" alt="">
                         <br>
-                        <p class="Landing">Líder en seguridad electrónica, con el equipo más sofisticado. Cubriendo necesidades de seguridad personal, familiar y empresarial a un precio bajo.</p>
+                        <p class="Landing">
+                            <span class="t1">Líder en seguridad electrónica, con el equipo más sofisticado.</span>
+                            <span class="t2">&nbsp;Cubriendo necesidades de seguridad</span>
+                            <span class="t3">&nbsp;personal, familiar y empresarial</span>
+                            <span class="t4">&nbsp;a un precio bajo.</span>
+                            <!-- <span class="t1">Líder en seguridad electrónica, con el equipo más sofisticado. Cubriendo necesidades de seguridad</span>
+                            <span class="t3" style="display:none">personal, familiar y empresarial</span>
+                            <span class="t2">Cubriendo necesidades de seguridad personal, familiar y empresarial a un precio bajo.</span> -->
+                        </p>
                     </div>
-                    <div class="col-md-3 col-lg-3 col-sm-3 text-center" style="border-right:1px solid #275B75">
+                    <div class="col-md-2 col-lg-3 col-sm-4 col-xs-4 text-center" style="border-right:1px solid #275B75">
                         <img class="vCuotas" class="img-responsive" src="images/vCuotas.png" alt="">
                     </div>
-                    <div class="col-md-3 col-lg-3 col-sm-3 text-center" style="border-right:1px solid #275B75">
+                    <div class="col-md-4 col-lg-3 text-center hidden-sm cts" style="border-right:1px solid #275B75">
                         <div class="text-center">
                             <strong><p class="colorWhite">CONTÁCTANOS:</p></strong>
                         </div>
                         <div class="text-left">
                             <ul class="cListFooter colorWhite">
                                 <li class="linkFoo">- (502) 6636-4810</li>
-                                <li class="linkFoo">- (502) 5699-2518</li>
+                                <li class="linkFoo">- (502) 3004-0480</li>
                                 <li class="linkFoo">- 5ta. Avenida 3-60 Zona1, Villa Nueva</li>
                                 <li class="linkFoo">- Facebook/TecnoVigilanciaGT</li>
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-3 col-lg-3 col-sm-4 text-center">
-                        <div class="col-md-6">
+                    <div class="col-md-3 col-lg-3 col-sm-4 col-xs-4 text-center">
+                        <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
                             <img class="img-responsive fTecnBand" src="images/guatemala.png" alt="">
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6">
                             <img class="img-responsive fTecnBand" src="images/chile.png" alt="">
                         </div>
                     </div>
@@ -132,7 +142,7 @@
 
 
 
-        <!-- <script src="lib/sweetalert2/dist/sweetalert2.all.min.js"></script> -->
+        <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase.js"></script>
         <!-- Angular JS -->
         <script src="lib/angular.js"></script>
         <!-- Angular UI Router -->

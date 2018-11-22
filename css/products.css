@@ -165,6 +165,10 @@
     color: #383E46;
     font-size: 22px;
     font-weight: bolder;
+
+}
+
+.underLine {
     border-bottom: 2px solid #0399D9;
 }
 
@@ -179,6 +183,11 @@
     align-items: center; */
 }
 
+.productContain:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
 .separateProduct {
     margin-top: 20px;
 }
@@ -190,7 +199,7 @@
  .shapeProduct {
     /* background: url("../images/aa.png") no-repeat center; */
     /* background: url("https://png.pngtree.com/thumb_back/fw800/back_pic/03/92/70/3157e3c7c032bd1.jpg") no-repeat center; */
-    background: url("../images/backgroundProducts.jpg") no-repeat center;
+    background: url("../images/backgroundProducts2.jpg") no-repeat center;
     -webkit-background-size: cover;
 }
 /*
@@ -207,7 +216,78 @@
     height: 200px;
 }
 
-.productImgDB:hover {
-    transform: scale(1.1);
-    cursor: pointer;
+.productImgDB {
+    -webkit-filter: drop-shadow(0 3px 3px #222 );
+    filter: drop-shadow(0 3px 3px #222);
+    height: 200px;
+    padding: 5%
+}
+
+.iconCategory {
+    width: 60px !important
+}
+
+.iconCategoryXS {
+    width: 40px !important
+}
+
+.iconXS {
+    width:40px;
+    position: absolute;
+    z-index: 9999
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  background-color: #393E46;
+
+  margin: 100px auto;
+  -webkit-animation: sk-rotateplane 1.2s infinite ease-in-out;
+  animation: sk-rotateplane 1.2s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-rotateplane {
+  0% { -webkit-transform: perspective(120px) }
+  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
+
+@keyframes sk-rotateplane {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(0deg) rotateY(0deg)
+  } 50% {
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+    -webkit-transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg)
+  } 100% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+    -webkit-transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);
+  }
 }
