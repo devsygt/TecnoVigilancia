@@ -11,6 +11,14 @@ firebase.initializeApp(config);
 var database = firebase.database();
 // Firebase Reference to Productos Entity
 var referencia=database.ref("ourProducts");
+
+if (window.performance) {
+       console.info("window.performance works fine on this browser");
+   }
+if (performance.navigation.type == 1) {
+   window.location.assign("http://tecno-vigilancia.com/#!/home")
+}
+
 //Constrution WEBSite
 var TVWebsite = angular.module("TVWebsite",['ui.router']);
 
@@ -115,6 +123,7 @@ TVWebsite.controller("contactCtrl",function($scope,$http) {
       $scope.submitButtonDisabled = false;
       $scope.submitted = false; //used so that form errors are shown only after the form has been submitted
       $scope.submit = function(contactform) {
+          swal('Muy pronto estaremos en contacto')
           $scope.submitted = true;
           $scope.submitButtonDisabled = true;
           if (contactform) {
@@ -128,7 +137,6 @@ TVWebsite.controller("contactCtrl",function($scope,$http) {
                       $scope.submitButtonDisabled = true;
                       $scope.resultMessage = data.message;
                       $scope.result='bg-success';
-                      swal('Muy pronto estaremos en contacto')
                       $scope.formData = {};
                   } else {
                       $scope.submitButtonDisabled = false;
@@ -148,79 +156,35 @@ TVWebsite.controller("contactCtrl",function($scope,$http) {
 
 TVWebsite.config(function($stateProvider,$urlRouterProvider) {
 
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise("/home");
 
+       $stateProvider
+           .state('home', {
+               url: "/home",
+               templateUrl: "templates/home.html",
+               controller: 'generalCtrl'
+           })
+           .state('our', {
+               url: "/our",
+               templateUrl: "templates/our.html"
+           })
+           .state('products', {
+               url: "/products",
+               templateUrl: "templates/products.html",
+               controller: 'ProductCtrl'
+           })
+           .state('contacts', {
+               url: "/contacts",
+               templateUrl: "templates/contacts.html",
+               controller: 'contactCtrl'
+           })
+           .state('promos', {
+               url: "/promos",
+               templateUrl: "templates/promos.html"
+           })
+           .state('customer', {
+               url: "/customer",
+               templateUrl: "templates/customer.html"
+           })
 
-    // if (window.performance) {
-    //   console.info("window.performance works fine on this browser");
-    //   $stateProvider.state(home);
-    // }
-    //   if (performance.navigation.type == 1) {
-    //     $stateProvider.state(home);
-    //   } else {
-    //     console.info( "This page is not reloaded");
-    //   }
-
-    var home = {
-        name: 'home',
-        url: '/home',
-        templateUrl: 'templates/home.html',
-        controller: 'generalCtrl'
-    }
-
-    var product = {
-        name: 'product',
-        url: '/product',
-        templateUrl: 'templates/products.html',
-        controller: 'ProductCtrl'
-    }
-
-    var contact = {
-        name: 'contact',
-        url: '/contact',
-        templateUrl: 'templates/contacts.html',
-        controller: 'contactCtrl'
-    }
-
-    var our = {
-        name: 'our',
-        url: '/our',
-        templateUrl: 'templates/our.html'
-        // controller: 'ourCtrl'
-    }
-
-    var promos = {
-        name: 'promos',
-        url: '/promos',
-        templateUrl: 'templates/promos.html'
-        // controller: 'promosCtrl'
-    }
-
-    var customer = {
-        name: 'customer',
-        url: '/customer',
-        templateUrl: 'templates/customer.html'
-        // controller: 'customerCtrl'
-    }
-
-    $stateProvider.state(home);
-    $stateProvider.state(product);
-    $stateProvider.state(contact);
-    $stateProvider.state(our);
-    $stateProvider.state(promos);
-    $stateProvider.state(customer);
-
-
-    // if (window.performance) {
-    //   console.info("window.performance works fine on this browser");
-    //   // $stateProvider.state(home);
-    //   // window.location.assign("http://tecno-vigilancia.com")
-    // }
-    //   if (performance.navigation.type == 1) {
-    //     // $stateProvider.state(home);
-    //     window.location.assign("index.html")
-    //   } else {
-    //
-    //   }
-
-});
+ });

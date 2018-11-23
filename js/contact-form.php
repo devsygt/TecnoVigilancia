@@ -19,8 +19,7 @@ $mail = new PHPMailer();
     $mail->IsHTML(true);
     $mail->From = $_POST['inputEmail'];
     $mail->FromName = $_POST['inputName'];
-    //$mail->AddAddress('info@tecno-vigilancia.com'); //recipient
-    $mail->AddAddress('merrickgonzzalo@outlook.com');
+    $mail->AddAddress('info@tecno-vigilancia.com'); //recipient
     $mail->Subject = "Cliente Website";
     $mail->Body = "<html>
 <body>
